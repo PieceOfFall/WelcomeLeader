@@ -64,7 +64,6 @@ public class Swiper : MonoBehaviour, IEndDragHandler
         Vector2 deltaPivot = newPivot - ContentTransform.pivot;
         Vector2 size = ContentTransform.rect.size;
         Vector2 deltaPosition = new(deltaPivot.x * size.x, deltaPivot.y * size.y);
-
         // ¸üÐÂ Pivot
         ContentTransform.pivot = newPivot;
 

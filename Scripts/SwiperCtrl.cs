@@ -67,10 +67,8 @@ public class SwiperCtrl : MonoBehaviour
         BgImage.sprite = selectedItem.OuterBg;
         NoiseImage.sprite = selectedItem.NoiseBg;
 
-
         lastObjRect = currentRect;
     }
-
 
     private IEnumerator ChangeHeight(RectTransform rect, float targetValue)
     {
