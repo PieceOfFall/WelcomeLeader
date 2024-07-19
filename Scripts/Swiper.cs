@@ -81,7 +81,7 @@ public class Swiper : MonoBehaviour, IEndDragHandler
         Swipe(swipeDirection);
         if (HandleEndSwipe)
         {
-            onEndSwipe.Invoke(new SwiperEventData()
+            onEndSwipe.Invoke(new()
             {
                 SwipeDirection = swipeDirection,
                 PointerEventData = eventData

@@ -16,14 +16,9 @@ public class IdleCtrl : MonoBehaviour
         // 检查是否有键盘输入或鼠标移动
         if (Input.touchCount > 0 || Input.GetKeyDown(KeyCode.Space))
         {
-            if(IdleObj.activeSelf)
-            {
-                ResetTimer();
+            ResetTimer();
+            if (IdleObj.activeSelf)
                 IdleObj.SetActive(false);
-            } else
-            {
-                ResetTimer();
-            }
         }
 
         // 检查是否超时
@@ -38,7 +33,9 @@ public class IdleCtrl : MonoBehaviour
         ResetTimer();
     }
 
-    // 重置计时器
+    /// <summary>
+    /// 重置计时器
+    /// </summary>
     void ResetTimer()
     {
         lastInteractionTime = Time.time;
