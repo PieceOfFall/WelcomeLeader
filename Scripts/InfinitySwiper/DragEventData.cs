@@ -4,13 +4,13 @@ using UnityEngine.EventSystems;
 /// <summary>
 /// 滑动事件参数
 /// </summary>
-public class SwiperEventData
+public class DragEventData
 {
     /// <summary>
     /// ScrollView点击事件
     /// </summary>
     public PointerEventData PointerEventData {  get; set; }
 
-    public Direction SwipeDirection { get; set; }
+    public Direction DragDirection { get; set; }
 }
 

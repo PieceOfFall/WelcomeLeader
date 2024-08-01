@@ -1,5 +1,4 @@
 using DG.Tweening;
-using System.IO.Pipes;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -10,7 +9,9 @@ public class Swiper : MonoBehaviour, IEndDragHandler
     public RectTransform ContentTransform;
     public float Duration = 0.2f;
     public bool HandleEndSwipe = true;
-    public UnityEvent<SwiperEventData> onEndSwipe;
+    public bool HandleEndDrag = false;
+    public UnityEvent<DragEventData> onEndDrag;
+    public UnityEvent<Direction> onEndSwipe;
 
     private ScrollRect ScrollRect;
     private float SizeStep;
@@ -53,13 +54,10 @@ public class Swiper : MonoBehaviour, IEndDragHandler
         float targetPos = ScrollRect.horizontalNormalizedPosition + (direction == Direction.Right ? SwipeStep : -SwipeStep);
         ScrollRect.DOHorizontalNormalizedPos(targetPos, Duration);
 
+        // 滑动事件回调
         if (HandleEndSwipe)
         {
-            onEndSwipe.Invoke(new()
-            {
-                SwipeDirection = direction,
-                PointerEventData = null
-            });
+            onEndSwipe.Invoke(direction);
         }
     }
 
@@ -86,7 +84,17 @@ public class Swiper : MonoBehaviour, IEndDragHandler
     /// <param name="eventData">回调参数</param>
     public void OnEndDrag(PointerEventData eventData)
     {
-        Direction swipeDirection = eventData.pressPosition.x > eventData.position.x ? Direction.Right : Direction.Left;
-        Swipe(swipeDirection);
+        Direction dragDirection = eventData.pressPosition.x > eventData.position.x ? Direction.Right : Direction.Left;
+
+        if (HandleEndDrag)
+        {
+            onEndDrag.Invoke(new()
+            {
+                DragDirection = dragDirection,
+                PointerEventData = eventData
+            });
+        }
+
+        Swipe(dragDirection);
     }
 }

@@ -6,11 +6,8 @@ public enum IdleOptions
     Swiper
 }
 
-
 public class IdleCtrl : MonoBehaviour
 {
-
-
     public float timeoutSeconds = 900; // 用户无操作的超时时间（秒）
     public IdleOptions idleOptions = IdleOptions.Video;
 

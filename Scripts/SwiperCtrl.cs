@@ -45,7 +45,7 @@ public class SwiperCtrl : MonoBehaviour
         StartCoroutine(ChangeHeight(lastObjRect, lastObjRect.sizeDelta.y + HeightGrowth));
     }
 
-    public void HandleSwipe(SwiperEventData _)
+    public void HandleSwipe(Direction _)
     {
         GameObject selectedObj = CustomSwiper.ContentTransform.GetChild(SelectedIndex).gameObject;
         SwiperItem selectedItem = selectedObj.GetComponent<SwiperItem>();
