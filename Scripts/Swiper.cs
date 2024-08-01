@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class Swiper : MonoBehaviour, IEndDragHandler
 {
     public RectTransform ContentTransform;
-    public float Size;
     public float Duration = 0.2f;
     public bool HandleEndSwipe = true;
     public UnityEvent<SwiperEventData> onEndSwipe;
@@ -19,7 +18,7 @@ public class Swiper : MonoBehaviour, IEndDragHandler
 
     void Awake()
     {
-        SizeStep = Size;
+        SizeStep = ContentTransform.rect.width / ContentTransform.childCount;
         ScrollRect = GetComponentInChildren<ScrollRect>();
         float itemViewNum = ScrollRect.viewport.rect.width / SizeStep;
         SwipeStep = 1f / (ContentTransform.childCount - itemViewNum);
