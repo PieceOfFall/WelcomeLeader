@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System.IO.Pipes;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -20,7 +21,7 @@ public class Swiper : MonoBehaviour, IEndDragHandler
     {
         SizeStep = Size;
         ScrollRect = GetComponentInChildren<ScrollRect>();
-        float itemViewNum = ScrollRect.GetComponent<RectTransform>().rect.width / SizeStep;
+        float itemViewNum = ScrollRect.viewport.rect.width / SizeStep;
         SwipeStep = 1f / (ContentTransform.childCount - itemViewNum);
     }
 
@@ -52,6 +53,15 @@ public class Swiper : MonoBehaviour, IEndDragHandler
         // ½øÐÐ»¬¶¯
         float targetPos = ScrollRect.horizontalNormalizedPosition + (direction == Direction.Right ? SwipeStep : -SwipeStep);
         ScrollRect.DOHorizontalNormalizedPos(targetPos, Duration);
+
+        if (HandleEndSwipe)
+        {
+            onEndSwipe.Invoke(new()
+            {
+                SwipeDirection = direction,
+                PointerEventData = null
+            });
+        }
     }
 
     /// <summary>
@@ -79,13 +89,5 @@ public class Swiper : MonoBehaviour, IEndDragHandler
     {
         Direction swipeDirection = eventData.pressPosition.x > eventData.position.x ? Direction.Right : Direction.Left;
         Swipe(swipeDirection);
-        if (HandleEndSwipe)
-        {
-            onEndSwipe.Invoke(new()
-            {
-                SwipeDirection = swipeDirection,
-                PointerEventData = eventData
-            });
-        }
     }
 }

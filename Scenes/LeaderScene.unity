@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9ef3e6fce04644f8c4c4333c4000ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OuterBg: {fileID: 21300000, guid: bfc9071aca1e1164b97578b217f70def, type: 3}
+  OuterBg: {fileID: 21300000, guid: f5e5f1662003ad1448ee93c66cad4d2d, type: 3}
   NoiseBg: {fileID: 21300000, guid: b05d42678aed64348a87a385c00088c9, type: 3}
   Year: 2016
   Month: 6
@@ -229,7 +229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9ef3e6fce04644f8c4c4333c4000ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OuterBg: {fileID: 21300000, guid: 3e356a91e8ce33e468805f8b0b7b1973, type: 3}
+  OuterBg: {fileID: 21300000, guid: 8382b58b01f55c44680d1d0555033679, type: 3}
   NoiseBg: {fileID: 21300000, guid: 043c2663dd6cf64449b97840c0842945, type: 3}
   Year: 2016
   Month: 6
@@ -778,7 +778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9ef3e6fce04644f8c4c4333c4000ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OuterBg: {fileID: 21300000, guid: 850874cab680f194a99be9f963d9b5ae, type: 3}
+  OuterBg: {fileID: 21300000, guid: b30c5a86d530f7c4d99c046ff1ca3e54, type: 3}
   NoiseBg: {fileID: 21300000, guid: aaa8cffa9ce54ab4db89ae08487aadd4, type: 3}
   Year: 2016
   Month: 6
@@ -1268,7 +1268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9ef3e6fce04644f8c4c4333c4000ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OuterBg: {fileID: 21300000, guid: fc09da7c49bb74847a2f31180c4e87f5, type: 3}
+  OuterBg: {fileID: 21300000, guid: 3445211906d9a0b41b774d56b5db3fd3, type: 3}
   NoiseBg: {fileID: 21300000, guid: f1ff320d8768b914f981b814f5107081, type: 3}
   Year: 2016
   Month: 6
@@ -1622,7 +1622,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 850874cab680f194a99be9f963d9b5ae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b30c5a86d530f7c4d99c046ff1ca3e54, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1799,7 +1799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9ef3e6fce04644f8c4c4333c4000ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OuterBg: {fileID: 21300000, guid: 596c63a388e92f546ba35a0d52e15735, type: 3}
+  OuterBg: {fileID: 21300000, guid: aaacd0bfaec672e418dc179d084eb49d, type: 3}
   NoiseBg: {fileID: 21300000, guid: 1cf5c1988b0171141b8f0dbaadee05ac, type: 3}
   Year: 2016
   Month: 6
@@ -2006,7 +2006,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9ef3e6fce04644f8c4c4333c4000ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OuterBg: {fileID: 21300000, guid: 128ad3b266c93ae4ea87078a3d79286b, type: 3}
+  OuterBg: {fileID: 21300000, guid: fd24f59640be4bd41b3e2f52c386c45d, type: 3}
   NoiseBg: {fileID: 21300000, guid: 1a49d4d6fca304349b7f66759c08ad10, type: 3}
   Year: 2016
   Month: 6
@@ -2378,8 +2378,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f247b9792c9867446bfe4bccae210031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IdleObj: {fileID: 876576382}
   timeoutSeconds: 900
+  idleOptions: 1
+  IdleVideoObj: {fileID: 876576382}
+  Swiper: {fileID: 800265935}
+  SwipeInterval: 5
+  IdleSwipeDirection: 1
 --- !u!1 &1544420016
 GameObject:
   m_ObjectHideFlags: 0
@@ -2521,7 +2525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba9ef3e6fce04644f8c4c4333c4000ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OuterBg: {fileID: 21300000, guid: fa4f4eac11cad4f439fec65e6f662e13, type: 3}
+  OuterBg: {fileID: 21300000, guid: 78ca127a2400b5d4488de4882b982d92, type: 3}
   NoiseBg: {fileID: 21300000, guid: cb1d69d6170c18e4ba74be478bf8aeb5, type: 3}
   Year: 2016
   Month: 6
@@ -2732,32 +2736,32 @@ PrefabInstance:
     - target: {fileID: 8089052054847314053, guid: 1dcef3efbb39c744ba02c22b773ba559,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8089052054847314053, guid: 1dcef3efbb39c744ba02c22b773ba559,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8089052054847314053, guid: 1dcef3efbb39c744ba02c22b773ba559,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8089052054847314053, guid: 1dcef3efbb39c744ba02c22b773ba559,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8089052054847314053, guid: 1dcef3efbb39c744ba02c22b773ba559,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 8089052054847314053, guid: 1dcef3efbb39c744ba02c22b773ba559,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: -10
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 8089052054847314053, guid: 1dcef3efbb39c744ba02c22b773ba559,
         type: 3}
