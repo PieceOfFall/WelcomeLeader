@@ -16,6 +16,7 @@ public class Swiper : MonoBehaviour, IEndDragHandler
     private ScrollRect ScrollRect;
     private float SizeStep;
     private float SwipeStep;
+    private bool IsSwiping = false;
 
     void Awake()
     {
@@ -31,6 +32,8 @@ public class Swiper : MonoBehaviour, IEndDragHandler
     /// <param name="direction">滑动方向</param>
     public void Swipe(Direction direction)
     {
+        if (IsSwiping) return;
+        IsSwiping = true;
         GameObject objToRemove = direction == Direction.Left
             ? ContentTransform.GetChild(ContentTransform.childCount - 1).gameObject
             : ContentTransform.GetChild(0).gameObject;
@@ -50,14 +53,29 @@ public class Swiper : MonoBehaviour, IEndDragHandler
         AdjustPivotAndPosition(new Vector2(reverseTargetX, 0.5f), originalAnchoredPos);
         ContentTransform.sizeDelta = new Vector2(ContentTransform.sizeDelta.x - SizeStep, ContentTransform.sizeDelta.y);
 
+        bool hasCorutineComplete = false;
+        bool hasEventComplete = false;
+
         // 进行滑动
         float targetPos = ScrollRect.horizontalNormalizedPosition + (direction == Direction.Right ? SwipeStep : -SwipeStep);
-        ScrollRect.DOHorizontalNormalizedPos(targetPos, Duration);
+        ScrollRect.DOHorizontalNormalizedPos(targetPos, Duration).OnComplete(() =>
+        {
+            hasCorutineComplete = true;
+            if(hasEventComplete)
+            {
+                IsSwiping = false;
+            }
+        });
 
         // 滑动事件回调
         if (HandleEndSwipe)
         {
             onEndSwipe.Invoke(direction);
+            hasEventComplete = true;
+            if(hasCorutineComplete)
+            {
+                IsSwiping = false;
+            }
         }
     }
 
