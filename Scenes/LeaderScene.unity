@@ -4305,7 +4305,7 @@ MonoBehaviour:
   idleOptions: 1
   IdleVideoObj: {fileID: 876576382}
   Swiper: {fileID: 800265935}
-  SwipeInterval: 5
+  SwipeInterval: 2
   IdleSwipeDirection: 1
 --- !u!1 &1512163341
 GameObject:
