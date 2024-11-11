@@ -7,11 +7,13 @@ using UnityEngine.UI;
 public class Swiper : MonoBehaviour, IEndDragHandler
 {
     public RectTransform ContentTransform;
+    public bool EnableSwipe = true;
     public float Duration = 0.2f;
     public bool HandleEndSwipe = true;
     public bool HandleEndDrag = false;
     public UnityEvent<DragEventData> onEndDrag;
     public UnityEvent<Direction> onEndSwipe;
+
 
     private ScrollRect ScrollRect;
     private float SizeStep;
@@ -32,7 +34,7 @@ public class Swiper : MonoBehaviour, IEndDragHandler
     /// <param name="direction">»¬¶¯·½Ïò</param>
     public void Swipe(Direction direction)
     {
-        if (IsSwiping) return;
+        if (IsSwiping || !EnableSwipe) return;
         IsSwiping = true;
         GameObject objToRemove = direction == Direction.Left
             ? ContentTransform.GetChild(ContentTransform.childCount - 1).gameObject

@@ -19,6 +19,9 @@ public class IdleCtrl : MonoBehaviour
     public Swiper Swiper;
     public float SwipeInterval = 5f;
     public Direction IdleSwipeDirection = Direction.Right;
+
+    public bool EnableAutoSwipe = false;
+
     private float timer = 0f;
 
     private float lastInteractionTime; // 记录最后操作时间
@@ -27,6 +30,7 @@ public class IdleCtrl : MonoBehaviour
     void Start()
     {
         ResetTimer();
+        EnableAutoSwipe = false;
     }
 
     void Update()
@@ -46,7 +50,7 @@ public class IdleCtrl : MonoBehaviour
         }
 
         // 轮播图Idle
-        if (idleOptions == IdleOptions.Swiper && isIdle)
+        if (idleOptions == IdleOptions.Swiper && isIdle && EnableAutoSwipe)
         {
             timer += Time.deltaTime;
 
